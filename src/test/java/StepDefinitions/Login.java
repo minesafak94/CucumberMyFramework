@@ -17,12 +17,12 @@ import java.time.Duration;
 
 public class Login extends CommonMethods {
 
-    @Given("open the browser and launch HRMS application")
+   /* @Given("open the browser and launch HRMS application")
     public void open_the_browser_and_launch_hrms_application() {
 
        openBrowserAndLaunchApplication();
 
-    }
+    }*/
 
     @When("user enters valid email and valid password")
     public void user_enters_valid_email_and_valid_password() {
@@ -48,9 +48,10 @@ public class Login extends CommonMethods {
             System.out.println("User is logged in successfully");
         }
     }
-    @Then("Close the browser")
+/*    @Then("Close the browser")
     public void close_the_browser() {
 
         closeBrowser();
-    }
+    }*/
+    //we dont need this any longer, we have hooks right now, this wont be called if we have hooks
 }
