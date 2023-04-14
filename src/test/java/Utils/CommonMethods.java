@@ -1,5 +1,6 @@
 package Utils;
 
+import StepDefinitions.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -14,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
-public class CommonMethods {
+public class CommonMethods extends PageInitializer {
     public static WebDriver driver;
     public static void openBrowserAndLaunchApplication(){
 
@@ -43,6 +44,8 @@ public class CommonMethods {
         driver.manage().window().maximize();
         driver.get(ConfigReader.getPropertyValue("url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(Constants.WAIT_TIME));//here u have to call constants class and value wait time
+        initializePageObjects();//This will initialize all the pages we have in or Page
+                                //page initializer class along with the launching of application
     }
 
     public static void closeBrowser(){
@@ -55,6 +58,7 @@ public class CommonMethods {
     }
 
     public static void sendText(WebElement element, String text){
+        element.clear();
         element.sendKeys(text);
     }
 
